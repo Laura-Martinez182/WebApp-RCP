@@ -15,6 +15,9 @@ namespace WebApp_RCP.Pages.Users
     public class CreateModel : PageModel
     {
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
+        [BindProperty]
+        public User User { get; set; }
+        IList<User> User1 { get; set; }
 
         public CreateModel(WebApp_RCP.Data.WebApp_RCPContext context)
         {
@@ -26,11 +29,6 @@ namespace WebApp_RCP.Pages.Users
             return Page();
         }
 
-        [BindProperty]
-        public User User { get; set; }
-        IList<User> User1 { get; set; }
-
-
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -38,13 +36,24 @@ namespace WebApp_RCP.Pages.Users
             {
                 return Page();
             }
-            
-            _context.User.Add(User);
-            
-            await _context.SaveChangesAsync();
-            User1 = await _context.User.ToListAsync();
 
-            return RedirectToPage("./Index");
+            else
+            {
+                var users = from m in _context.User
+                            select m;
+
+                if (!string.IsNullOrEmpty(User.ID))
+                {
+                    users = users.Where(s => s.ID.Equals(User.ID));
+                }
+
+                _context.User.Add(User);
+
+                await _context.SaveChangesAsync();
+                User1 = await _context.User.ToListAsync();
+
+                return RedirectToPage("./Index");
+            }
         }
     }
 }

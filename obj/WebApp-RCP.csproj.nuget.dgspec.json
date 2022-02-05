@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\laura\\Desktop\\Programing\\WebApp-RCP\\WebApp-RCP.csproj": {}
+    "C:\\Users\\Diana\\Desktop\\GIT\\WebApp-RCP\\WebApp-RCP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\laura\\Desktop\\Programing\\WebApp-RCP\\WebApp-RCP.csproj": {
+    "C:\\Users\\Diana\\Desktop\\GIT\\WebApp-RCP\\WebApp-RCP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laura\\Desktop\\Programing\\WebApp-RCP\\WebApp-RCP.csproj",
+        "projectUniqueName": "C:\\Users\\Diana\\Desktop\\GIT\\WebApp-RCP\\WebApp-RCP.csproj",
         "projectName": "WebApp-RCP",
-        "projectPath": "C:\\Users\\laura\\Desktop\\Programing\\WebApp-RCP\\WebApp-RCP.csproj",
-        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laura\\Desktop\\Programing\\WebApp-RCP\\obj\\",
+        "projectPath": "C:\\Users\\Diana\\Desktop\\GIT\\WebApp-RCP\\WebApp-RCP.csproj",
+        "packagesPath": "C:\\Users\\Diana\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Diana\\Desktop\\GIT\\WebApp-RCP\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Diana\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -5,7 +5,7 @@ namespace WebApp_RCP.Models
     public class User
     {
         [Required]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         [Required]
         public string UserName { get; set; } = string.Empty;
