@@ -42,17 +42,27 @@ namespace WebApp_RCP.Pages.Users
                 var users = from m in _context.User
                             select m;
 
-                if (!string.IsNullOrEmpty(User.ID))
+                User = await _context.User.FindAsync(User.ID);
+
+                if (User == null)
                 {
                     users = users.Where(s => s.ID.Equals(User.ID));
+
+                    _context.User.Add(User);
+
+                    await _context.SaveChangesAsync();
+                    User1 = await _context.User.ToListAsync();
+
+                    return RedirectToPage("./Index");
                 }
 
-                _context.User.Add(User);
+                else
+                {
+                    ViewData["Message"] = "This user is already registered on the platform, try again";
+                    return RedirectToPage("../Index");
 
-                await _context.SaveChangesAsync();
-                User1 = await _context.User.ToListAsync();
+                }
 
-                return RedirectToPage("./Index");
             }
         }
     }
