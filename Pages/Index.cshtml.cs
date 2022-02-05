@@ -16,9 +16,11 @@ namespace WebApp_RCP.Pages
         
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
 
+        [BindProperty]
+        public User userData { get; set; }
+
         public IndexModel(WebApp_RCP.Data.WebApp_RCPContext context)
         {
-           
             _context = context;
         }
 
@@ -28,10 +30,6 @@ namespace WebApp_RCP.Pages
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            
-
-            
-
             return RedirectToPage("./Users/Index");
         }
     }
