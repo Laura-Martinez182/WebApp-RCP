@@ -1,0 +1,27 @@
+﻿@page
+@model WebApp_RCP.Pages.LoginModel
+@{
+}
+
+<div class="container mt-5"> 
+	<div class="row justify-content-center align-items-center">
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Login</h1>
+			<form method="post">
+			<div class="mb-3">
+				<label class="form-label" asp-for="userData.UserName">User Name</label>
+				<input type="text" asp-for="userData.UserName" class="form-control" />
+				<span asp-validation-for="userData.UserName" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label class="form-label" asp-for="userData.Password">Password</label>
+				<input type="password" asp-for="userData.Password" class="form-control" />
+				<span asp-validation-for="userData.Password" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<button type="submit" class="btn btn-primary">Sign In</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
