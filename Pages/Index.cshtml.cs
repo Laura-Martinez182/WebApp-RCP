@@ -15,19 +15,23 @@ namespace WebApp_RCP.Pages
     {
         
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
+        private readonly ILogger<PrivacyModel> _logger;
 
         [BindProperty]
         public User userData { get; set; }
 
-        public IndexModel(WebApp_RCP.Data.WebApp_RCPContext context)
+        public IndexModel(ILogger<PrivacyModel> logger, WebApp_RCP.Data.WebApp_RCPContext context)
         {
+            _logger = logger;
             _context = context;
+
         }
 
         public void OnGet()
         {
 
         }
+
         public async Task<IActionResult> OnPostAsync()
         {
             return RedirectToPage("./Users/Index");
