@@ -5,10 +5,10 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>RPC :: Red de Programación Competitiva</h1>
 
-<h4>User</h4>
-<hr />
+<h4>Sign Up</h4>
+<hr  style="height:2px; border-width:0;color:deepskyblue;background-color:deepskyblue"/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -39,15 +39,14 @@
                 <span asp-validation-for="User.BirthDay" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-page="../Index">Cancel</a>
             </div>
+       
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
