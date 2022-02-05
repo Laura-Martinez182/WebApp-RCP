@@ -46,7 +46,7 @@ namespace WebApp_RCP.Pages.Users
 
                 if (User == null)
                 {
-                    users = users.Where(s => s.ID.Equals(User.ID));
+                    users = users.Where(s => s.ID!=User.ID);
 
                     _context.User.Add(User);
 
@@ -59,10 +59,8 @@ namespace WebApp_RCP.Pages.Users
                 else
                 {
                     ViewData["Message"] = "This user is already registered on the platform, try again";
-                    return RedirectToPage("../Index");
-
+                    return RedirectToPage("./Index");
                 }
-
             }
         }
     }
