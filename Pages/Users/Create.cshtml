@@ -7,7 +7,7 @@
 
 <div class="text-center">
     <h1 class="display-4">
-		<img src="https://redprogramacioncompetitiva.com/images/lgo_rpc1.png" width="120" height="120" />
+		<img src="https://redprogramacioncompetitiva.com/images/lgo_rpc1.png" width="155" height="140" />
         RPC :: Red de Programación Competitiva
     </h1>
 </div>
@@ -45,11 +45,12 @@
                 <input asp-for="User.BirthDay" class="form-control" type="date" max="2020-12-31" min="1990-01-01" step="1">
                 <span asp-validation-for="User.BirthDay" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" onclick="findPassword()"/>
+            
+            
+           <div class="form-group">
+                <button class="btn btn-primary" type="submit" value="Save">Save</button>
                 <a asp-page="../Index">Cancel</a>
             </div>
-       
         </form>
         </div>
     </div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 using WebApp_RCP.Data;
 using WebApp_RCP.Models;
@@ -21,8 +22,7 @@ namespace WebApp_RCP.Pages
         [BindProperty(SupportsGet = true)]
         public String UserID { get; set; }
         [BindProperty(SupportsGet = true)]
-        public String Password { get; set; }
-        
+        public String Password { get; set; } 
 
 
         public IndexModel(ILogger<PrivacyModel> logger, WebApp_RCP.Data.WebApp_RCPContext context)
@@ -47,8 +47,10 @@ namespace WebApp_RCP.Pages
                 var data = _context.User.FirstOrDefault(u => u.UserName == UserID && u.Password == Password);
                 if (data is null)
                 {
+                    
                     Found = false;
                     return Page();
+                    
                 }
                 else
                 {
