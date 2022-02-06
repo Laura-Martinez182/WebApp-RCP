@@ -4,31 +4,20 @@
     ViewData["Title"] = "Home page";
 }
 
-@*<div class="text-center">
-    <h1 class="display-4">
-        hello    
-    </h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <form method = "post">
-        <input  type="submit" value="ok"/>
-    </form>
-</div>*@
-
 <div class="text-center">
     <h1 class="display-4">
         RPC :: Red de Programación Competitiva
     </h1>
 </div>
+<h4>Sign In</h4>
+<hr style="height:2px; border-width:0;color:deepskyblue;background-color:deepskyblue">
+
 <div class="container mt-5"> 
 	<div class="row justify-content-center align-items-center">
 		<div class="col-sm-12 col-md-12 col-lg-4">
 			
 			
 			<form method="post">
-			<div class="mb-3">
-				<label class="form-label">Sign In</label>
-			</div>
-			<hr style="height:2px; border-width:0;color:deepskyblue;background-color:deepskyblue">
 			<div class="mb-3">
 				<label class="form-label" asp-for="UserID">User Name:</label>
 				<input type="text" asp-for="UserID" class="form-control" />
@@ -37,7 +26,7 @@
 			<div class="mb-3">
 				<label class="form-label">Password:</label>
 				<input type="password" asp-for="Password" class="form-control" />
-				<span class="text-danger"></span>
+				
 			</div>
 			<div class="mb-3">
 				<button type="submit" class="btn btn-primary">SIGN IN</button>

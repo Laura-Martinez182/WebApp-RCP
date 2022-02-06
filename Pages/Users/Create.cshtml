@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="User.BirthDay" class="control-label"></label>
-                <input asp-for="User.BirthDay" class="form-control" />
+                <input asp-for="User.BirthDay" class="form-control" type="date" max="2020-12-31" min="1990-01-01" step="1">
                 <span asp-validation-for="User.BirthDay" class="text-danger"></span>
             </div>
             <div class="form-group">

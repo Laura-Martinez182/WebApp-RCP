@@ -38,33 +38,7 @@ namespace WebApp_RCP.Pages.Users
 
             UsersList = await _context.User.ToListAsync();
 
-            /*var users = from m in _context.User
-                        select m;
-
-            if (!string.IsNullOrEmpty(FindhUsername))
-            {
-                users = users.Where(s => s.UserName.Equals(FindhUsername));
-            }
-
-            UsersList = await users.ToListAsync();
-
-            if (UsersList.Count == 1)
-            {
-                if (UsersList.ElementAt(0).Password.Equals(FindPassword) && !string.IsNullOrEmpty(FindPassword))
-                {
-                    ViewData["Message"] = UsersList.ElementAt(0).UserName;
-                    UsersList = await users.ToListAsync();
-                }
-                else
-                {
-                    Response.Redirect("./Index");
-                }
-            }
-
-            else
-            {
-                Response.Redirect("./Index");
-            }*/
+           
         }
     }
 }
