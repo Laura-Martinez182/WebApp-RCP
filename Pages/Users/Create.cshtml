@@ -5,24 +5,30 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>RPC :: Red de Programación Competitiva</h1>
+<div class="text-center">
+    <h1 class="display-4">
+        RPC :: Red de Programación Competitiva
+    </h1>
+</div>
 
 <h4>Sign Up</h4>
 <hr  style="height:2px; border-width:0;color:deepskyblue;background-color:deepskyblue"/>
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
                 <label asp-for="User.UserName" class="control-label"></label>
                 <input asp-for="User.UserName" class="form-control" />
                 <span asp-validation-for="User.UserName" class="text-danger"></span>
-            </div>
+                </div>
             <div class="form-group">
                 <label asp-for="User.Password" class="control-label"></label>
                 <input asp-for="User.Password" class="form-control" />
                 <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <label asp-for="User.FirstName" class="control-label"></label>
                 <input asp-for="User.FirstName" class="form-control" />
@@ -44,28 +50,11 @@
             </div>
        
         </form>
+        </div>
     </div>
 </div>
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
-    <script>function findPassword() {
-        let firtsPassword = document.getElementById("passw").value;
-        let realPassword = document.getElementById("conf-passw").value;
-
-        if (realPassword.length != 0) 
-        {
-            if (firtsPassword != realPassword)
-            {
-                alert("Password don't match!");
-            }
-        } 
-
-        else
-        {
-            alert("Password can't be empty!");
-        }
-     </script>
 }

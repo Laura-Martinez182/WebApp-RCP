@@ -22,7 +22,7 @@ namespace WebApp_RCP.Pages.Users
         [BindProperty]
         public string FindPassword { get; set; }
 
-        public new IList<User> UsersList { get; set; }
+        
 
         public IndexModel(ILogger<PrivacyModel> logger, WebApp_RCP.Data.WebApp_RCPContext context)
         {
@@ -31,9 +31,14 @@ namespace WebApp_RCP.Pages.Users
 
         }
 
+        public IList<User> UsersList { get; set; }
+
         public async Task OnGetAsync()
         {
-            var users = from m in _context.User
+
+            UsersList = await _context.User.ToListAsync();
+
+            /*var users = from m in _context.User
                         select m;
 
             if (!string.IsNullOrEmpty(FindhUsername))
@@ -59,7 +64,7 @@ namespace WebApp_RCP.Pages.Users
             else
             {
                 Response.Redirect("./Index");
-            }
+            }*/
         }
     }
 }

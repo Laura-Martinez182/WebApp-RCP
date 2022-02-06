@@ -16,23 +16,50 @@ namespace WebApp_RCP.Pages
 
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
         private readonly ILogger<PrivacyModel> _logger;
+        public bool Empty { get; set; }
+        public bool Found { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public String UserID { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public String Password { get; set; }
+        
 
-        [BindProperty]
-        public User userData { get; set; }
 
         public IndexModel(ILogger<PrivacyModel> logger, WebApp_RCP.Data.WebApp_RCPContext context)
         {
             _logger = logger;
             _context = context;
+            Empty = false;
+            Found = true;
         }
 
         public void OnGet()
         {
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
-            return RedirectToPage("./Users/Index");
+            Empty = false;
+            Found = true;
+
+            if (UserID != null && Password != null)
+            {
+                var data = _context.User.FirstOrDefault(u => u.UserName == UserID && u.Password == Password);
+                if (data is null)
+                {
+                    Found = false;
+                    return Page();
+                }
+                else
+                {
+                    return RedirectToPage("./Users/Index");
+                }
+            }
+            else
+            {
+                Empty = true;
+                return Page();
+            }
         }
     }
 }

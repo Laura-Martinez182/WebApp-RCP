@@ -21,7 +21,7 @@ namespace WebApp_RCP.Models
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime BirthDay { get; set; } = DateTime.MinValue;
     }
 }

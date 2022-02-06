@@ -59,7 +59,7 @@ namespace WebApp_RCP.Pages.Users
                 return Page();
             }
 
-            if (CheckPassword.Equals(User.Password))
+            /*if (CheckPassword.Equals(User.Password))
             {
                 await findUsername();
 
@@ -75,7 +75,11 @@ namespace WebApp_RCP.Pages.Users
             {
                 ViewData["Message"] = "Passwords don't match, try again";
             }
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index");*/
+
+            _context.User.Add(User);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("../Index");
         }
     }
 }
