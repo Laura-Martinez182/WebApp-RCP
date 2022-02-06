@@ -11,25 +11,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].UserName)
+                @Html.DisplayNameFor(model => model.UsersList[0].UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].Password)
+                @Html.DisplayNameFor(model => model.UsersList[0].Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].FirstName)
+                @Html.DisplayNameFor(model => model.UsersList[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].LastName)
+                @Html.DisplayNameFor(model => model.UsersList[0].LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].BirthDay)
+                @Html.DisplayNameFor(model => model.UsersList[0].BirthDay)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.User) {
+@foreach (var item in Model.UsersList) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.UserName)

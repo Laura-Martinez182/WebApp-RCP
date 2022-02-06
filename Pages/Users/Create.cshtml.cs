@@ -17,7 +17,9 @@ namespace WebApp_RCP.Pages.Users
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
         [BindProperty]
         public User User { get; set; }
-        IList<User> User1 { get; set; }
+        public IList<User> UsersList { get; set; }
+
+        public string CheckPassword { get; set; }
 
         public CreateModel(WebApp_RCP.Data.WebApp_RCPContext context)
         {
@@ -29,39 +31,51 @@ namespace WebApp_RCP.Pages.Users
             return Page();
         }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task findUsername()
         {
+            var users = from m in _context.User
+                             select m;
+            
+            if (!string.IsNullOrEmpty(User.UserName))
+            {
+                users = users.Where(s => s.UserName.Equals(User.UserName));
+            }
+
+            UsersList = await users.ToListAsync();
+
+            if (UsersList.Count == 1)
+            {
+                ViewData["Message"] = "This user is already registered on the platform, try again";
+            }
+        }
+
+        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            ViewData["Message"] = null;
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            else
+            if (CheckPassword.Equals(User.Password))
             {
-                var users = from m in _context.User
-                            select m;
+                await findUsername();
 
-                User = await _context.User.FindAsync(User.ID);
-
-                if (User == null)
+                if (ViewData["Message"] == null)
                 {
-                    users = users.Where(s => s.ID!=User.ID);
-
                     _context.User.Add(User);
-
                     await _context.SaveChangesAsync();
-                    User1 = await _context.User.ToListAsync();
-
-                    return RedirectToPage("./Index");
-                }
-
-                else
-                {
-                    ViewData["Message"] = "This user is already registered on the platform, try again";
-                    return RedirectToPage("./Index");
+                    return RedirectToPage("../Index");
                 }
             }
+
+            else
+            {
+                ViewData["Message"] = "Passwords don't match, try again";
+            }
+            return RedirectToPage("./Index");
         }
     }
 }

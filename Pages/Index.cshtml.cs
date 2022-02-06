@@ -13,7 +13,7 @@ namespace WebApp_RCP.Pages
 {
     public class IndexModel : PageModel
     {
-        
+
         private readonly WebApp_RCP.Data.WebApp_RCPContext _context;
         private readonly ILogger<PrivacyModel> _logger;
 
@@ -24,12 +24,10 @@ namespace WebApp_RCP.Pages
         {
             _logger = logger;
             _context = context;
-
         }
 
         public void OnGet()
         {
-
         }
 
         public async Task<IActionResult> OnPostAsync()
